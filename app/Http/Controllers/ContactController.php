@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return 'hi'; 
-    }
-
-    public function contact()
-    {
-        $people = ['Joe','Ross', 'Rach', 'Phebe'];
-        return view('contact', compact('people'));
+        $comments = Contact::orderBy('created_at', 'desc')->get();
+        $sub_comments = Contact::where('parent_id', '>', 0)->orderBy('created_at', 'desc')->get();
+        return view('contact',compact('comments','sub_comments'));
     }
 
     /**
@@ -40,16 +37,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Contact::create([ 'user' => $request['name'], 
+                'comment' => $request['message'], 
+                'parent_id' => (int)$request['parent_id']
+            ]);
+           
+        return redirect('contact');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contact $contact)
     {
         //
     }
@@ -57,10 +59,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -69,10 +71,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -80,19 +82,11 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
         //
     }
-
-    public function posts()
-    {
-        return view('post');
-    }
-
-
-
 }
