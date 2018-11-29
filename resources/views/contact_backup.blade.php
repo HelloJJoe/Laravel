@@ -22,32 +22,29 @@
         <div class="col-s-8 col-md-10 mx-auto">
           <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
           @auth
-            <form method="POST" action="{{ route('contact') }}">
-                @csrf
+            {{Form::open(['url'=>'/contact', 'method'=>'post'])}} 
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
-                  <label for="name">Name:</label>
-                  <input type='text' name='name' class='form-control', placeholder="Name", required data-validation-required-message='Please enter your name' />
+                  {{ Form::label('Name', 'Name:') }}
+                  {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name', 'required data-validation-required-message' => 'Please enter your name']) }}
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
 
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
-                  <label for="Message">Message:</label>
-                  <textarea name='message' class='form-control', placeholder="Message", required data-validation-required-message='Please enter your message' rows=3 ></textarea>          
+                  {{ Form::label('Message', 'Message:') }}
+                  {{ Form::textarea('message', null, ['class' => 'form-control', 'placeholder' => 'Message', 'required data-validation-required-message' => 'Please enter your message', 'rows' => 3])}}
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <br>
               <div id="success"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">
-                  Send
-                </button>
+                {{ Form::submit('Send', ['class' => 'btn btn-primary']) }}
               </div>
-                <input type='hidden' name='parent_id' value=0 />
-            </form>
+                {{ Form::hidden('parent_id', 0) }}
+            {{ Form::close() }}
           @else
             <a class="nav-link" href='{{ route('login') }}' style="color:grey">Guests? Please Login</a>
           @endauth
