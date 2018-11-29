@@ -2,7 +2,7 @@
 <div class="container">
       <div class="row" >
         <div class="col-s-8 col-md-10 mx-auto">
-         
+        @auth
           {{Form::open(['url'=>'/contact', 'method'=>'post'])}} 
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
@@ -26,6 +26,9 @@
             </div>
               {{ Form::hidden('parent_id', $comment->id) }}
           {{ Form::close() }}
+        @else
+          <h6><a href="{{ route('login') }}" style='color:grey'>add comment</a></h6>
+        @endauth
         </div>
       </div>
       <hr>

@@ -8,8 +8,8 @@
         @if($comment->parent_id === 0)
           <div class="post-preview">
             <a>
-              <h2 class="post-title"> {{ $comment->user }} </h2>
-              <h3 class="post-subtitle"> {{ $comment->comment }} </h3> <br>
+              <h4 class="post-title"> {{ $comment->user }} </h4>
+              <h5 class="post-subtitle"> {{ $comment->comment }} </h5> <br>
             </a>
             <p class="post-meta">{{ $comment->created_at }}</p>
           </div> 

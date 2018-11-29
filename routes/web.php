@@ -11,26 +11,14 @@
 |
 */
 
-Route::get('/posts',function(){
-	return view('post');
-})->name('posts');
-
-
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
-Route::post('/contact','ContactController@store');
+Route::get('/posts','PageController@posts')->name('posts');
+Route::get('/', 'PageController@index')->name('index');
+Route::get('/about', 'PageController@about')->name('about');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
+Route::post('/contact','ContactController@store');
 
+Auth::routes();
 
-Route::get('/about', function () {
-	$tests = App\Contact::all();
-    return view('about', compact('tests'));
-})->name('about');
-
-
-
-
+Route::get('/home', 'HomeController@index')->name('home');
 
