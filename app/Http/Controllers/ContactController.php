@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -16,17 +17,13 @@ class ContactController extends Controller
     {
         $comments = Contact::orderBy('created_at', 'desc')->get();
         $sub_comments = Contact::where('parent_id', '>', 0)->orderBy('created_at', 'desc')->get();
-        return view('contact',compact('comments','sub_comments'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        if(Auth::check()){
+            $user = Auth::user();
+        }
+        else{
+            $user = '';
+        }
+        return view('contact',compact('comments','sub_comments','user'));
     }
 
     /**
@@ -44,49 +41,6 @@ class ContactController extends Controller
            
         return redirect('contact');
     }
+ 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contact $contact)
-    {
-        //
-    }
 }

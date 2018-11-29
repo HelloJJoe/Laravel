@@ -1,15 +1,20 @@
-@extends('layout.master')
+@extends('layout.master_backend')
 @section('title', 'Contact')
 @section('content')
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
+    <header class="masthead" style="background-image: url('img/backup.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="page-heading">
-              <h1>Contact Me</h1>
-              <span class="subheading">Have questions? I have answers.</span>
+              @guest
+                <h1>Contact Me</h1>
+                <span class="subheading">Have questions? I have answers.</span>
+              @else
+                <h1>Hi, {{ $user->username}}</h1>
+                <span class="subheading">Welcome To Leave Your Message</span>
+              @endguest
             </div>
           </div>
         </div>
@@ -42,7 +47,7 @@
               <br>
               <div id="success"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary pull-right">
                   Send
                 </button>
               </div>
@@ -55,10 +60,12 @@
       </div>
       <hr>
     </div>
-
-    
-
     @include('comment.comment')
 @endsection
+
+
+
+
+
 
   

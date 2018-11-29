@@ -1,16 +1,18 @@
 @extends('layout.master')
-@section('title', 'About me')
+@section('title', 'Portfolio')
 @section('content')
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+    <header class="masthead" style="background-image: url('img/portfolio.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="page-heading">
               <h1>About Me</h1>
-              <span class="subheading">This is what I do.</span>
+              <span class="subheading">This Is What I do</span>
+
+              </form>
             </div>
           </div>
         </div>

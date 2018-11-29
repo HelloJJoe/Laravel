@@ -23,13 +23,14 @@
     </head>
 
     <body>
-        @include('layout.navbar')
+
+        @include('layout.navbar_backend')
+        @yield('content')
+        @include('layout.footer')
         <!-- Bootstrap core JavaScript -->
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        @yield('content')
-        @yield('script')
-        @include('layout.footer')
+
         <!-- Custom scripts for this template -->
         <script src="{{ asset('js/clean-blog.min.js') }}"></script>
 

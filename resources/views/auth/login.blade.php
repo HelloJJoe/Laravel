@@ -1,14 +1,18 @@
-@extends('layouts.app')
-
+@extends('layout.master_backend')
+@section('title', 'Login')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/login.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+
+            <div class="page-heading">
+              <h2>Log In</h2>
+              <br>
+              <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -56,18 +60,12 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
-                    </form>
-                </div>
+              </form>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+    </header>
 @endsection

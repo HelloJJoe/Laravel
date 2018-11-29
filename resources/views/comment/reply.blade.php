@@ -1,9 +1,13 @@
 
 <div class="container">
       <div class="row" >
-        <div class="col-s-8 col-md-10 mx-auto">
+        <div class="col-s-8 col-md-10">
         @auth
-          <form method="POST" action="{{ route('contact') }}">
+          <button type="button" class="add_comment btn btn-primary" style='font-size : 5px;padding:5px'>
+              Reply
+          </button>
+
+          <form method="POST" action="{{ route('contact') }}" style='display:none' >
             @csrf
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
@@ -30,13 +34,23 @@
             </div>
               <input type='hidden' name='parent_id' value='{{$comment->id}}'/>
           </form>
-        @else
-          <h6><a href="{{ route('login') }}" style='color:grey'>add comment</a></h6>
-        @endauth
-        </div>
+          @else
+            <a href="{{ route('login') }}" style='color:grey'>add comment</a>
+          @endauth
+        
       </div>
-      <hr>
-    </div>
+  </div>
+</div>
+<script src="{{ asset('jquery/jquery.min.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $(".add_comment").click(function(){
+        $(this).next().toggle();
+      });
+    });
+</script>
+
+
  
 
 
