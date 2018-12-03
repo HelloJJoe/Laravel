@@ -29,9 +29,6 @@
         <p class="post-meta">
         I graduated in Chemical Engineering but fascinated with the software technical field. During the alternative military service, I taught myself the web development from the open course, such as edX and Udemy. Now, I am familiarized with Javascript, experienced with PHP and MySQL and now learning the framework React and Laravel for developing a website.   
         </p>
-        <p class="post-meta">
-        To be a software engineer, passion and problem-solving skills are essential, and also the team working. Previously, I had some similar experience. Through the Master’s research program, I worked in a team with 20 members with a different background, such as physics, mechanical and civil engineering. To achieve the goal, I had to realize the very demand from the other teams, to overcome the constraint of hardware and to predict the characteristic of the material. During the time, I had honed the collaborative, communicative and problem-solving skill, and that is also essential for a software engineer. Besides, with passion and high motivation about learning new skills, I think I can get into the job shortly. With possessing field knowledge of Chemical Engineering, I can also offer a different insight into the team.
-        </p>
       </div>
       
       <!--

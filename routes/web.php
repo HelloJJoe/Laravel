@@ -13,10 +13,14 @@
 
 Route::get('/posts','PageController@posts')->name('posts');
 Route::get('/', 'PageController@index')->name('index');
-Route::get('/about', 'PageController@about')->name('about');
+
+Route::get('/portfolio', 'PageController@portfolio')->name('portfolio');
+Route::get('/portfolio/commentboard', 'PageController@portfolio_cb')->name('portfolio_cb');
+Route::get('/portfolio/personalpage', 'PageController@portfolio_pp')->name('portfolio_pp');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact','ContactController@store');
+
 
 Auth::routes();
 

@@ -11,10 +11,21 @@ class PageController extends Controller
         return view('index');
     }
 
-    public function about()
+    public function portfolio()
     {
-    	return view('about');
+    	return view('portfolio');
     }
+
+    public function portfolio_cb()
+    {
+        return view('portfolio.commentboard');
+    }
+
+    public function portfolio_pp()
+    {
+        return view('portfolio.personalpage');
+    }
+
 
     public function posts()
     {

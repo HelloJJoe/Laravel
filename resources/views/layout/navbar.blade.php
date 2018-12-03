@@ -12,7 +12,7 @@
             <a class="nav-link" href="{{ route('index') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('about') }}">portfolio</a>
+            <a class="nav-link" href="{{ route('portfolio') }}">portfolio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('contact') }}">Contact</a>
